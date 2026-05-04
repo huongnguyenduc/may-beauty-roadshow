@@ -1,6 +1,6 @@
-/** Static paths under /public/may-beauty. Run `npm run fetch-assets` to download PNGs; otherwise Next rewrites to Figma (see next.config.ts). */
+/** Static paths under /public/may-beauty. Run `npm run fetch-assets` to re-download from Figma and emit WebP. */
 export const figmaAssets = {
-  gradient: "/may-beauty/gradient.png",
-  sku: "/may-beauty/sku.png",
-  podium: "/may-beauty/podium.png",
+  gradient: "/may-beauty/gradient.webp",
+  sku: "/may-beauty/sku.webp",
+  podium: "/may-beauty/podium.webp",
 } as const;
