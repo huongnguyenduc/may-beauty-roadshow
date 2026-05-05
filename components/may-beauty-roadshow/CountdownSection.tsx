@@ -8,16 +8,16 @@ function getEventStartMs(): number {
     typeof process.env.NEXT_PUBLIC_ROADSHOW_EVENT_AT === "string" &&
     process.env.NEXT_PUBLIC_ROADSHOW_EVENT_AT.length > 0
       ? process.env.NEXT_PUBLIC_ROADSHOW_EVENT_AT
-      : "2026-05-31T10:00:00+07:00";
+      : "2026-05-14T14:00:00+07:00";
   const ms = Date.parse(raw);
-  return Number.isNaN(ms) ? Date.parse("2026-05-31T10:00:00+07:00") : ms;
+  return Number.isNaN(ms) ? Date.parse("2026-05-14T14:00:00+07:00") : ms;
 }
 
 const LABELS = [
-  { key: "d", label: "ngày", labelClass: "text-countdown-label-soft", valueMinWidthClass: "min-w-[3ch]" },
-  { key: "h", label: "giờ", labelClass: "text-countdown-label", valueMinWidthClass: "min-w-[2ch]" },
-  { key: "m", label: "phút", labelClass: "text-countdown-label", valueMinWidthClass: "min-w-[2ch]" },
-  { key: "s", label: "giây", labelClass: "text-countdown-label", valueMinWidthClass: "min-w-[2ch]" },
+  { key: "d", label: "NGÀY", labelClass: "text-countdown-label-soft", valueMinWidthClass: "min-w-[3ch]" },
+  { key: "h", label: "GIỜ", labelClass: "text-countdown-label", valueMinWidthClass: "min-w-[2ch]" },
+  { key: "m", label: "PHÚT", labelClass: "text-countdown-label", valueMinWidthClass: "min-w-[2ch]" },
+  { key: "s", label: "GIÂY", labelClass: "text-countdown-label", valueMinWidthClass: "min-w-[2ch]" },
 ] as const;
 
 function splitRemaining(ms: number): { d: number; h: number; m: number; s: number } {
@@ -37,13 +37,23 @@ export function CountdownSection() {
   useEffect(() => {
     const target = getEventStartMs();
 
+    let id: number | undefined;
+
     function tick() {
-      setParts(splitRemaining(target - Date.now()));
+      const remaining = target - Date.now();
+      if (remaining <= 0) {
+        setParts({ d: 0, h: 0, m: 0, s: 0 });
+        if (id !== undefined) window.clearInterval(id);
+        return;
+      }
+      setParts(splitRemaining(remaining));
     }
 
     tick();
-    const id = window.setInterval(tick, 1000);
-    return () => window.clearInterval(id);
+    id = window.setInterval(tick, 1000);
+    return () => {
+      if (id !== undefined) window.clearInterval(id);
+    };
   }, []);
 
   const display = parts ?? { d: 0, h: 0, m: 0, s: 0 };
@@ -61,7 +71,7 @@ export function CountdownSection() {
     >
       <h2
         id="countdown-heading"
-        className="mx-auto mb-6 max-w-[519px] px-2 text-[clamp(1.5rem,4vw,2.5rem)] font-bold uppercase leading-normal text-brand-red lg:mb-[3px] lg:w-[519px] lg:max-w-none lg:px-0 lg:text-[40px]"
+        className="mx-auto mb-6 max-w-[519px] px-2 text-[20px] sm:text-[clamp(1.5rem,4vw,2.5rem)] font-bold uppercase leading-normal text-brand-red lg:mb-[3px] lg:w-[519px] lg:max-w-none lg:px-0 lg:text-[40px]"
       >
         Sự kiện diễn ra sau
       </h2>
@@ -76,20 +86,20 @@ export function CountdownSection() {
             <Fragment key={unit.key}>
               <span
                 style={{ gridColumn: index * 2 + 1, gridRow: 1 }}
-                className={`inline-block text-center tabular-nums text-[clamp(2.5rem,8vw,5rem)] font-black leading-normal text-black lg:text-[80px] ${unit.valueMinWidthClass}`}
+                className={`inline-block text-center tabular-nums text-[40px] sm:text-[clamp(2.5rem,8vw,5rem)] font-black leading-normal text-black lg:text-[80px] ${unit.valueMinWidthClass}`}
               >
                 {values[index]}
               </span>
               <span
                 style={{ gridColumn: index * 2 + 1, gridRow: 2 }}
-                className={`mt-1 text-center text-[15px] font-medium normal-case ${unit.labelClass}`}
+                className={`mt-1 text-center text-[12px] sm:text-[15px] font-medium normal-case ${unit.labelClass}`}
               >
                 {unit.label}
               </span>
               {index < LABELS.length - 1 ? (
                 <span
                   style={{ gridColumn: index * 2 + 2, gridRow: 1 }}
-                  className="flex shrink-0 items-center justify-center self-center text-[clamp(1.75rem,5vw,3.125rem)] font-normal leading-none text-black lg:text-[50px] lg:leading-normal"
+                  className="flex shrink-0 items-center justify-center self-center text-[24px] sm:text-[clamp(1.75rem,5vw,3.125rem)] font-normal leading-none text-black lg:text-[50px] lg:leading-normal"
                   aria-hidden="true"
                 >
                   :
