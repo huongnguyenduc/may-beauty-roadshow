@@ -1,0 +1,21 @@
+{
+	"servers": {
+		"playwright": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"-y",
+				"@playwright/mcp@latest"
+			]
+		},
+		"figma-mcp-go": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"-y",
+				"@vkhanhqui/figma-mcp-go"
+			]
+		}
+	},
+	"inputs": []
+}
