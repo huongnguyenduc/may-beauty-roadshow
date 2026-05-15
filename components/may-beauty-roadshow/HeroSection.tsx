@@ -12,7 +12,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative w-full overflow-hidden" aria-label="Hero">
+    <section id="hero-section" className="relative w-full overflow-hidden" aria-label="Hero">
       <div className="relative w-full md:hidden">
         <Image
           src={figmaAssets.heroFullMobile}

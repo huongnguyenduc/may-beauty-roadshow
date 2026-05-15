@@ -8,6 +8,8 @@ import { SpeakerSection } from "./SpeakerSection";
 import { ChallengesSection } from "./ChallengesSection";
 import { BenefitsSection } from "./BenefitsSection";
 import { AgendaSection } from "./AgendaSection";
+import { FooterSection } from "@/components/may-beauty-roadshow/FooterSection";
+import { StickyRegistrationButton } from "./StickyRegistrationButton";
 
 export function MayBeautyRoadshow() {
   return (
@@ -38,6 +40,8 @@ export function MayBeautyRoadshow() {
       </div>
       <AgendaSection />
       <HeroFormSection />
+      <FooterSection />
+      <StickyRegistrationButton />
     </div>
   );
 }
