@@ -8,6 +8,7 @@ import { figmaAssets } from "./figma-assets";
 export function HeaderSection() {
   return (
     <header
+      id="header-section"
       className="relative w-full bg-white"
       data-testid="may-beauty-header"
     >

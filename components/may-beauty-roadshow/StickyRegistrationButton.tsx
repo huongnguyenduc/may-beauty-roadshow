@@ -3,22 +3,22 @@
 import { useEffect, useState } from "react";
 
 export function StickyRegistrationButton() {
-  const [isHeroVisible, setIsHeroVisible] = useState(true);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const [isShown, setIsShown] = useState(false);
 
   useEffect(() => {
-    const heroSection = document.getElementById("hero-section");
+    const headerSection = document.getElementById("header-section");
     const registrationForm = document.getElementById("registration-form");
 
-    if (!heroSection || !registrationForm) {
+    if (!headerSection || !registrationForm) {
       return;
     }
 
-    const heroObserver = new IntersectionObserver(
+    const headerObserver = new IntersectionObserver(
       ([entry]) => {
-        setIsHeroVisible(entry?.isIntersecting ?? false);
+        setIsHeaderVisible(entry?.isIntersecting ?? false);
       },
       {
         threshold: 0.1,
@@ -34,17 +34,17 @@ export function StickyRegistrationButton() {
       }
     );
 
-    heroObserver.observe(heroSection);
+    headerObserver.observe(headerSection);
     formObserver.observe(registrationForm);
 
     return () => {
-      heroObserver.disconnect();
+      headerObserver.disconnect();
       formObserver.disconnect();
     };
   }, []);
 
   useEffect(() => {
-    const shouldShow = !isHeroVisible && !isFormVisible;
+    const shouldShow = !isHeaderVisible && !isFormVisible;
 
     if (shouldShow) {
       setIsMounted(true);
@@ -65,7 +65,7 @@ export function StickyRegistrationButton() {
     return () => {
       window.clearTimeout(timeoutId);
     };
-  }, [isFormVisible, isHeroVisible]);
+  }, [isFormVisible, isHeaderVisible]);
 
   const handleClick = () => {
     const target = document.getElementById("registration-form");
@@ -107,7 +107,7 @@ export function StickyRegistrationButton() {
           strokeLinejoin="round"
         />
       </svg>
-      <span>Đăng kí ngay</span>
+      <span>ĐĂNG KÝ NGAY</span>
     </button>
   );
 }
