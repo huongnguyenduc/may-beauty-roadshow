@@ -27,7 +27,7 @@ export function HeaderSection() {
 
         <Link
           href="#registration-form"
-          className="inline-flex h-[28.55px] w-[106.61px] shrink-0 items-center justify-center rounded-[37.193px] bg-brand-red px-0 text-center text-[6px] font-extrabold leading-none text-white transition-opacity hover:opacity-90 xl:h-[53.6px] xl:w-[200.17px] xl:text-[20px]"
+          className="inline-flex h-[28.55px] w-[106.61px] shrink-0 items-center justify-center rounded-[37.193px] bg-brand-red px-0 text-center text-[10px] font-extrabold leading-none text-white transition-opacity hover:opacity-90 xl:h-[53.6px] xl:w-[200.17px] xl:text-[20px]"
         >
           ĐĂNG KÝ NGAY
         </Link>
