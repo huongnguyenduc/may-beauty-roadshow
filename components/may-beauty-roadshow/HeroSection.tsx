@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { figmaAssets } from "./figma-assets";
 
 export function HeroSection() {
@@ -9,6 +8,12 @@ export function HeroSection() {
     const target = document.getElementById("registration-form");
     if (!target) return;
     target.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+  };
+
+  const handleScrollToAgenda = () => {
+    const target = document.getElementById("agenda-section");
+    if (!target) return;
+    target.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
   };
 
   return (
@@ -44,15 +49,14 @@ export function HeroSection() {
           className="absolute left-[34.88%] top-[87.92%] h-[3.98%] w-[26.40%] border-0 bg-transparent p-0 md:left-[11.32%] md:top-[86.34%] md:h-[6.12%] md:w-[17.22%]"
           aria-label="Đăng kí tham dự"
         />
-        <Link
-          href="https://www.facebook.com/OnPointVietnam"
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          type="button"
+          onClick={handleScrollToAgenda}
           aria-label="Chi tiết chương trình"
           className="absolute left-[34.42%] top-[93.17%] block h-[3.87%] w-[28.02%] bg-transparent md:left-[31.46%] md:top-[86.60%] md:h-[5.99%] md:w-[18.26%]"
         >
           <span className="sr-only">Chi tiết chương trình</span>
-        </Link>
+        </button>
       </div>
     </section>
   );
