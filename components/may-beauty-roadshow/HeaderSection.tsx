@@ -10,13 +10,13 @@ export function HeaderSection() {
     <header
       id="header-section"
       className="relative w-full bg-white"
-      data-testid="may-beauty-header"
+      data-testid="beauty-header"
     >
       <div className="mx-auto box-border flex w-full flex-row items-center justify-between gap-0 px-8 py-0 min-h-[92px] md:max-w-2xl lg:max-w-4xl xl:max-w-6xl xl:min-h-[204px] xl:px-0 xl:pb-6 xl:pt-6">
         <div className="relative h-[49px] w-[128px] shrink-0 xl:h-[92px] xl:w-[239px]">
           <Image
             src={figmaAssets.headerLogo}
-            alt="May Beauty Roadshow"
+            alt="Beauty Roadshow"
             width={128}
             height={49}
             className="h-full w-full object-contain object-left"

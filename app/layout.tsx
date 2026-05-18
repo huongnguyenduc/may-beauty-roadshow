@@ -6,7 +6,7 @@ import "./globals.css";
 const googleAnalyticsId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID ?? process.env.GOOGLE_ANALYTICS_ID;
 
 export const metadata: Metadata = {
-  title: "May Beauty Roadshow | OnPoint",
+  title: "Beauty Roadshow | OnPoint",
   description: "Đăng ký tham dự miễn phí",
   icons: {
     icon: "https://www.onpoint.vn/favicon-32x32.png?v=f9bbce19532d55db72dce9d5ae590834",
@@ -22,13 +22,13 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "May Beauty Roadshow | OnPoint",
+    title: "Beauty Roadshow | OnPoint",
     description: "Đăng ký tham dự miễn phí",
     images: ["https://s3.ap-southeast-1.amazonaws.com/public.onpoint.vn/home-meta.png"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "May Beauty Roadshow | OnPoint",
+    title: "Beauty Roadshow | OnPoint",
     description: "Đăng ký tham dự miễn phí",
     images: ["https://s3.ap-southeast-1.amazonaws.com/public.onpoint.vn/home-meta.png"],
   },
