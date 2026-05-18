@@ -8,6 +8,7 @@ import { figmaAssets } from "./figma-assets";
 export function AgendaSection() {
   return (
     <section
+      id="agenda-section"
       className="relative w-full overflow-hidden"
       aria-label="Event Agenda"
     >
@@ -16,7 +17,7 @@ export function AgendaSection() {
           src={figmaAssets.agendaSectionMobile}
           alt="Agenda - Event Schedule"
           width={425}
-          height={546}
+          height={508}
           className="block h-auto w-full"
           sizes="100vw"
           priority
@@ -28,7 +29,7 @@ export function AgendaSection() {
           src={figmaAssets.agendaSection}
           alt="Agenda - Event Schedule"
           width={1440}
-          height={1730}
+          height={1697}
           className="block h-auto w-full"
           sizes="100vw"
           priority
